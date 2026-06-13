@@ -75,6 +75,11 @@ seed_policy_ids:
   repo_hygiene:
     - repo.no-disposable-cruft
 
+related_categories:
+  repo.no-disposable-cruft:
+    - tracked-repo-cruft-placeholder
+    - disposable-output-in-checkout
+
 app_record_template:
   app: example-app
   repo: /Users/example/git/example-app
