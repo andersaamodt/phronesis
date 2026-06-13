@@ -1,0 +1,90 @@
+version: 1
+description: >
+  Standard app-policy matrix shape for Wizardry-family projects. Use this to
+  track which apps implement, fail, except, or have not yet been audited
+  against each policy.
+
+status_values:
+  pass: Policy is implemented and current evidence proves it.
+  fail: Policy is violated or required evidence is missing.
+  exception-approved: Policy is intentionally not followed and has approved rationale.
+  pending-decision: Behavior differs meaningfully and needs a standards decision.
+  not-applicable: Policy does not apply to the app or surface.
+  unknown: Scope exists but evidence is too weak.
+  not-audited: Scope has not been checked.
+
+policy_record:
+  required:
+    - id
+    - title
+    - group
+    - default_status_for_new_apps
+    - default_severity
+    - enforcement_layer
+  optional:
+    - rationale
+    - canonical_doc
+    - related_categories
+    - allowed_exception_types
+    - generator_default
+    - validator_hint
+
+app_record:
+  required:
+    - app
+    - repo
+    - audited_at
+    - policies
+  policy_status_fields:
+    - policy_id
+    - status
+    - severity
+    - evidence
+    - categories
+    - exception_id
+    - pending_decision_id
+    - next_action
+
+seed_policy_ids:
+  variance:
+    - variance.reasoned
+  language:
+    - language.shell-first
+    - language.exception-ledger
+  storage:
+    - storage.app-home-default
+    - storage.plain-text
+    - format.user-yaml-md
+  tests:
+    - tests.dot-tests
+    - tests.shipped-backend-contract
+    - tests.shipped-ui-contract
+  themes:
+    - themes.shared-catalog-authority
+    - themes.native-shared-catalog-parity
+    - themes.picker-keyboard
+    - themes.list-alphabetized
+  bridge:
+    - bridge.no-shell-fragments
+    - bridge.backend-resolution-owned
+  runtime:
+    - runtime.no-cargo-on-demand
+  docs:
+    - docs.local-exceptions
+    - docs.exception-ledger-shape
+  repo_hygiene:
+    - repo.no-disposable-cruft
+
+app_record_template:
+  app: example-app
+  repo: /Users/example/git/example-app
+  audited_at: YYYY-MM-DD
+  policies:
+    - policy_id: storage.app-home-default
+      status: not-audited
+      severity: high
+      evidence: []
+      categories: []
+      exception_id: null
+      pending_decision_id: null
+      next_action: Audit durable storage root.
