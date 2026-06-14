@@ -8,6 +8,7 @@ Rules:
 - Shipped apps need backend contract coverage under `.tests/`.
 - Shipped GUI apps need UI, static, or native-shell contract coverage under `.tests/`.
 - Other test-related paths may hold fixtures or helpers, but they are not the canonical test entrypoints.
+- Tests and verification scripts that inspect generated artifacts must resolve them through the repo's canonical path helper or documented generated-output root, not a stale repo-local fallback path.
 - Native IR or schema validation alone does not satisfy shipped GUI coverage.
 - High-risk flows need adversarial coverage for bridges, paths, persistence, run/build/install flows, and drag/drop.
 - Release/readiness claims require matching tests or explicitly documented gaps.
