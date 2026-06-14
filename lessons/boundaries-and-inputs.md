@@ -6,3 +6,4 @@
 - Release and packaging metadata is executable input; validate it before it reaches signers, uploaders, installers, archive tools, or generated project files.
 - Workspace-relative paths must resolve inside the workspace after symlink resolution, not only after string-shape checks.
 - Background jobs need a full lifecycle contract: bounded lease or heartbeat, stale-lock expiry, explicit shutdown, and child-process reaping.
+- Shell scripts that re-enter themselves must exec a resolved script path, not `$0`, because callers often invoke them as `sh path/to/script` and `$0` then names the shell rather than the script.
