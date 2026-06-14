@@ -1,0 +1,273 @@
+version: 1
+description: Canonical reusable audit category registry for wizardry-family audits.
+  Local repos keep affected scopes and evidence.
+categories:
+- id: storage-default-home-missing
+  title: App does not use the default app-home storage layout
+  policy_axes:
+  - Storage And State Discipline
+  default_severity: high
+  fix_strategy: Decide whether to migrate to ~/appname or document a narrow approved
+    exception.
+- id: storage-exception-undocumented
+  title: Storage exception is real but not documented where auditors look
+  policy_axes:
+  - Storage And State Discipline
+  - Documentation And Auditability
+  default_severity: medium
+  fix_strategy: Add repo-local AI-facing exception notes and keep them in sync with
+    runtime behavior.
+- id: shared-xdg-app-namespace
+  title: Standard-folder storage uses a shared cross-app namespace instead of an app-owned
+    root
+  policy_axes:
+  - Storage And State Discipline
+  default_severity: medium
+  fix_strategy: Prefer app-owned roots such as ~/.appname or app-specific standard-folder
+    directories over shared wizardry-apps namespace paths.
+- id: plain-text-durable-state-violated
+  title: Durable app state is not stored as plain text without justification
+  policy_axes:
+  - Storage And State Discipline
+  default_severity: high
+  fix_strategy: Move durable state to plain-text formats and reserve opaque formats
+    for narrow justified cases.
+- id: browser-owned-durable-state
+  title: Durable app state depends on browser-owned extension storage instead of an
+    app-owned plain-text contract
+  policy_axes:
+  - Storage And State Discipline
+  - Documentation And Auditability
+  default_severity: high
+  fix_strategy: Keep browser storage cache-only where needed and move canonical durable
+    state to app-owned plain-text surfaces or another explicit exportable contract.
+- id: user-facing-config-not-yaml-md
+  title: User-facing durable config does not use the preferred YAML plus Markdown
+    text conventions
+  policy_axes:
+  - Storage And State Discipline
+  default_severity: medium
+  fix_strategy: Move user-facing durable config to YAML-oriented text or document
+    a narrow exception.
+- id: human-contract-format-not-yaml-md
+  title: Primary human-edited project contracts do not use the preferred YAML plus
+    Markdown family
+  policy_axes:
+  - Storage And State Discipline
+  - Documentation And Auditability
+  default_severity: medium
+  fix_strategy: Keep machine ABI envelopes in JSON when needed, but move human-owned
+    project contracts toward YAML-oriented text.
+- id: language-exception-undocumented
+  title: Non-shell language exceptions are present without a clear exception ledger
+  policy_axes:
+  - Language And Boundary Discipline
+  - Documentation And Auditability
+  default_severity: medium
+  fix_strategy: Enumerate each approved non-shell boundary and keep the exception
+    set explicit.
+- id: generated-state-in-checkout
+  title: Generated defaults normalize runtime or durable state inside the source checkout
+  policy_axes:
+  - Storage And State Discipline
+  default_severity: high
+  fix_strategy: Move generated runtime-state defaults to explicit user-local state
+    roots outside the checkout.
+- id: tracked-repo-cruft-placeholder
+  title: Repo tracks disposable cruft placeholders such as empty log files
+  policy_axes:
+  - Storage And State Discipline
+  - Testing And Release Readiness
+  default_severity: medium
+  fix_strategy: Remove tracked placeholders and ensure runtime/log paths are created
+    outside source checkouts or only as ignored local files when absolutely necessary.
+- id: disposable-output-in-checkout
+  title: Disposable build or dependency output is present in source checkout
+  policy_axes:
+  - Storage And State Discipline
+  - Testing And Release Readiness
+  default_severity: medium
+  fix_strategy: Move dependency caches, build outputs, and package staging to temp,
+    cache, or explicit external build roots; clean existing ignored outputs before
+    release.
+- id: standards-guidance-contradictory
+  title: AI-facing standards docs contradict each other on the approved pattern
+  policy_axes:
+  - Documentation And Auditability
+  default_severity: high
+  fix_strategy: Collapse conflicting guidance into one canonical approved pattern
+    and remove the losing variant.
+- id: tests-not-under-dot-tests
+  title: Test surfaces are not organized under .tests
+  policy_axes:
+  - Testing And Release Readiness
+  default_severity: medium
+  fix_strategy: Move test entrypoints under .tests and leave non-test helpers elsewhere.
+- id: config-example-stale
+  title: Checked-in config example contradicts current runtime defaults or canonical
+    paths
+  policy_axes:
+  - Documentation And Auditability
+  - Storage And State Discipline
+  default_severity: medium
+  fix_strategy: Keep example configs aligned with current runtime defaults and remove
+    legacy path guidance from user-copyable examples.
+- id: python-exception-undocumented
+  title: Python is used without an explicit bounded exception
+  policy_axes:
+  - Language And Boundary Discipline
+  - Documentation And Auditability
+  default_severity: high
+  fix_strategy: Replace Python where not justified or document the retained runtime/tooling
+    boundary explicitly.
+- id: theme-catalog-hardcoded
+  title: Theme picker uses a hardcoded list instead of the real wizardry theme set
+  policy_axes:
+  - GUI Contract
+  default_severity: medium
+  fix_strategy: Source the available themes from the shared theme directory or backend
+    contract.
+- id: generated-native-theme-catalog-hardcoded
+  title: Generated native theme picker embeds static theme options instead of using
+    discovered themes
+  policy_axes:
+  - GUI Contract
+  - Native And Host Boundary Discipline
+  default_severity: medium
+  fix_strategy: Make generated native theme controls consume the same discovered shared
+    theme catalog on every platform target.
+- id: theme-picker-keyboard-broken
+  title: Theme picker keyboard behavior does not match wizardry expectations
+  policy_axes:
+  - GUI Contract
+  default_severity: medium
+  fix_strategy: Make focused closed pickers cycle themes with up/down arrows and keep
+    open-list behavior consistent.
+- id: theme-picker-not-alphabetized
+  title: Theme picker list is not alphabetized consistently
+  policy_axes:
+  - GUI Contract
+  default_severity: low
+  fix_strategy: Sort theme names consistently at the contract source.
+- id: theme-application-incomplete
+  title: Theme application is partial or cosmetic rather than deep
+  policy_axes:
+  - GUI Contract
+  default_severity: medium
+  fix_strategy: Push theme tokens through all major app surfaces and remove un-themed
+    holdouts.
+- id: cargo-runtime-layer-present
+  title: Shipped app runtime depends on a direct Cargo-managed helper layer
+  policy_axes:
+  - Language And Boundary Discipline
+  - Native And Host Boundary Discipline
+  - Testing And Release Readiness
+  default_severity: high
+  fix_strategy: Remove Cargo from ordinary shipped runtime paths or move the helper
+    into an explicitly approved host or theurgy boundary.
+- id: settings-shell-split
+  title: Settings live outside the main app shell without justification
+  policy_axes:
+  - GUI Contract
+  default_severity: high
+  fix_strategy: Integrate settings into the primary shell unless the app is explicitly
+    a document multiplexer.
+- id: bridge-shell-fragment-execution
+  title: Frontend bridge falls back to shell fragments instead of hardcoded argv actions
+  policy_axes:
+  - Execution And Security Boundary
+  default_severity: high
+  fix_strategy: Move execution into explicit backend actions and remove sh -c fallbacks.
+- id: frontend-machine-state-scraping
+  title: Frontend scrapes generic diagnostics for machine state instead of using a
+    backend contract
+  policy_axes:
+  - Execution And Security Boundary
+  - GUI Contract
+  default_severity: medium
+  fix_strategy: Expose the required machine or endpoint state through a dedicated
+    backend contract.
+- id: inline-guided-fallback-missing
+  title: App uses alert-driven or send-away fallback UX instead of guided inline state
+  policy_axes:
+  - GUI Contract
+  default_severity: medium
+  fix_strategy: Replace alert and imperative fallback messaging with durable inline
+    status and guided next actions.
+- id: frontend-derived-backend-path
+  title: Frontend derives backend executable paths from document location instead
+    of using a host-owned contract
+  policy_axes:
+  - Execution And Security Boundary
+  default_severity: medium
+  fix_strategy: Keep backend path resolution inside the host or backend contract and
+    expose only explicit actions to the frontend.
+- id: read-path-mutates-state
+  title: Passive reads or refreshes mutate durable app state
+  policy_axes:
+  - Storage And State Discipline
+  - GUI Contract
+  default_severity: high
+  fix_strategy: Separate hydration/read paths from write paths and add regression
+    coverage.
+- id: generated-staging-not-disposable
+  title: Generated staging tree is not fully disposable or rerender-safe after normal
+    local build artifacts
+  policy_axes:
+  - Native And Host Boundary Discipline
+  - Testing And Release Readiness
+  default_severity: medium
+  fix_strategy: Keep generated staging trees disposable, ignore build artifacts there,
+    and make rerender paths robust after ordinary local builds.
+- id: ui-static-tests-missing
+  title: Shipped GUI app lacks UI or static contract coverage
+  policy_axes:
+  - Testing And Release Readiness
+  default_severity: high
+  fix_strategy: Add UI/static contract tests alongside backend coverage in .tests.
+- id: repo-ai-standards-missing
+  title: Repo lacks a local AI-facing standards or exception surface
+  policy_axes:
+  - Documentation And Auditability
+  default_severity: medium
+  fix_strategy: Add a repo-local .github note that records standards specializations
+    and approved exceptions.
+- id: repo-local-exception-ledger-incomplete
+  title: Repo-local AI docs do not enumerate local exception boundaries in the required
+    shape
+  policy_axes:
+  - Documentation And Auditability
+  - Language And Boundary Discipline
+  - Storage And State Discipline
+  default_severity: medium
+  fix_strategy: Add or expand repo-local AI docs so storage, language, theme, runtime,
+    test, release, generated-output, and repo-cruft boundaries are explicit.
+- id: backend-contract-tests-missing
+  title: Shipped app lacks backend contract coverage under .tests
+  policy_axes:
+  - Testing And Release Readiness
+  default_severity: high
+  fix_strategy: Add backend contract coverage in .tests before relying on manual or
+    UI-only validation.
+- id: audit-surface-stale
+  title: Existing audit surface is stale or inaccurate relative to current source
+  policy_axes:
+  - Documentation And Auditability
+  default_severity: medium
+  fix_strategy: Revalidate or regenerate the audit surface from current source before
+    treating it as active evidence.
+- id: gnu-tool-dependency-undocumented
+  title: Repo relies on GNU-specific tool behavior without explicit portability handling
+  policy_axes:
+  - Language And Boundary Discipline
+  - Testing And Release Readiness
+  default_severity: medium
+  fix_strategy: Replace GNU-specific behavior with a POSIX-safe path or add explicit
+    portability guards and tests.
+- id: validation-suite-red
+  title: Canonical validation or contract test suite is not green
+  policy_axes:
+  - Testing And Release Readiness
+  default_severity: high
+  fix_strategy: Restore the canonical test suite to green before treating the contract
+    layer as stable.

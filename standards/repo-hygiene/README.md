@@ -12,8 +12,11 @@ profiles, app-instance state roots, or scratch workspaces.
 - Treat repo-local cruft as a tooling bug to fix at the source, not as a mess to tolerate.
 - Track generated source only when it is a deliberate reviewable artifact.
 - Do not track package outputs, dependency caches, local logs, compiled helper outputs, or build intermediates.
+- Generated staging trees should be disposable and rerender-safe after ordinary local tool artifacts appear.
+- Empty placeholder logs are repo cruft, not source.
+- If a path must remain near the repo for tooling reasons, ignore it and document the reason.
 
 ## Canonical Ideal Document
 
 - `wizardry-general.gitignore` is the canonical comprehensive wizardry-family `.gitignore`.
-- Projects may specialize it, but omissions should be intentional and documented.
+- Projects import it verbatim unless an explicit exemption is documented.

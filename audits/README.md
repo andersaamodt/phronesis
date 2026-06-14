@@ -17,3 +17,10 @@ Audit outputs should include:
 - variance ledger updates
 - proposed standards for later promotion
 - policy-matrix status updates when the matrix exists
+
+Canonical method files:
+
+- `rolling-audit.md`
+- `compliance-framework.md`
+- `category-ledger-schema.yaml`
+- `category-registry.yaml`

@@ -65,6 +65,7 @@ seed_policy_ids:
     - themes.native-shared-catalog-parity
     - themes.picker-keyboard
     - themes.list-alphabetized
+    - themes.deep-application
   bridge:
     - bridge.native-host-boundary
     - bridge.no-shell-fragments
@@ -77,11 +78,23 @@ seed_policy_ids:
   repo_hygiene:
     - repo.canonical-gitignore
     - repo.no-disposable-cruft
+  gui:
+    - gui.main-shell-settings
+    - gui.inline-guided-fallback
+    - gui.passive-read-no-mutation
+  adversarial_testing:
+    - adversarial.focused-regression
 
 related_categories:
   repo.no-disposable-cruft:
     - tracked-repo-cruft-placeholder
     - disposable-output-in-checkout
+  gui.inline-guided-fallback:
+    - inline-guided-fallback-missing
+  gui.main-shell-settings:
+    - settings-shell-split
+  gui.passive-read-no-mutation:
+    - read-path-mutates-state
 
 app_record_template:
   app: example-app

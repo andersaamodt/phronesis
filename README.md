@@ -29,10 +29,12 @@ between projects should become one of:
 - `lessons/`: promoted lessons from wizardry-family audits.
 - `tools/`: future validators and report consistency checks.
 
-## Seed Standards
+## Canonical Standards
 
-The first seed is repo hygiene: source repositories are not app-instance
-directories, package-output shelves, cache homes, log sinks, or scratch spaces.
+Current canonical areas include language, storage, tests, themes, GUI,
+runtime boundaries, repo docs, repo hygiene, adversarial testing, audit method,
+category schemas, and policy matrix shape.
+
 The canonical comprehensive `.gitignore` is in
 `standards/repo-hygiene/wizardry-general.gitignore`.
 

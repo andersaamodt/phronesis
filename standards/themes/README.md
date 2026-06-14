@@ -12,3 +12,6 @@ Rules:
 - App-local themes and fixed palettes are allowed only when documented as app identity.
 - Apps with app-local themes still define their own ordering, keyboard, persistence, and depth contract.
 - Generated native theme controls that expose shared themes must use the same discovered shared catalog across platform outputs.
+- Opening and closing a theme picker without changing value preserves the current active selection.
+- Selecting a theme applies immediately with no reload or deferred repaint artifact.
+- Desktop apps persist selected shared themes through backend preferences, not browser-owned durability.

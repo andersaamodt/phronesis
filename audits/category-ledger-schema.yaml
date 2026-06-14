@@ -1,0 +1,75 @@
+version: 1
+description: >
+  Canonical category-ledger shape for wizardry-family audits. Phronesis owns
+  category structure and reusable category ids; implementation repos own
+  affected-scope evidence.
+
+category_record:
+  required:
+    - id
+    - title
+    - policy_ids
+    - default_severity
+    - fix_strategy
+  optional:
+    - why_it_matters
+    - enforcement_layer
+    - allowed_exception_types
+    - related_categories
+
+local_finding_record:
+  required:
+    - category_id
+    - scope
+    - status
+    - severity
+    - evidence
+    - next_action
+  optional:
+    - exception_id
+    - pending_decision_id
+
+category_seed_ids:
+  storage:
+    - storage-default-home-missing
+    - storage-exception-undocumented
+    - shared-xdg-app-namespace
+    - plain-text-durable-state-violated
+    - browser-owned-durable-state
+    - user-facing-config-not-yaml-md
+    - human-contract-format-not-yaml-md
+  language:
+    - language-exception-undocumented
+    - python-exception-undocumented
+    - gnu-tool-dependency-undocumented
+  repo_hygiene:
+    - generated-state-in-checkout
+    - tracked-repo-cruft-placeholder
+    - disposable-output-in-checkout
+    - generated-staging-not-disposable
+  docs:
+    - standards-guidance-contradictory
+    - repo-ai-standards-missing
+    - repo-local-exception-ledger-incomplete
+    - audit-surface-stale
+    - config-example-stale
+  tests:
+    - tests-not-under-dot-tests
+    - backend-contract-tests-missing
+    - ui-static-tests-missing
+    - validation-suite-red
+  themes:
+    - theme-catalog-hardcoded
+    - generated-native-theme-catalog-hardcoded
+    - theme-picker-keyboard-broken
+    - theme-picker-not-alphabetized
+    - theme-application-incomplete
+  runtime_boundaries:
+    - cargo-runtime-layer-present
+    - bridge-shell-fragment-execution
+    - frontend-derived-backend-path
+    - frontend-machine-state-scraping
+    - read-path-mutates-state
+  gui:
+    - settings-shell-split
+    - inline-guided-fallback-missing
