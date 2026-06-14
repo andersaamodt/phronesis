@@ -15,5 +15,5 @@ profiles, app-instance state roots, or scratch workspaces.
 
 ## Canonical Ideal Document
 
-- `wizardry-general.gitignore` is the canonical comprehensive Wizardry-family `.gitignore`.
+- `wizardry-general.gitignore` is the canonical comprehensive wizardry-family `.gitignore`.
 - Projects may specialize it, but omissions should be intentional and documented.

@@ -1,6 +1,6 @@
 # Standards
 
-Standards are reusable rules that should shape new Wizardry-family projects
+Standards are reusable rules that should shape new wizardry-family projects
 before code is generated or written.
 
 Good standards are:

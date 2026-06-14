@@ -1,6 +1,6 @@
 version: 1
 description: >
-  Standard app-policy matrix shape for Wizardry-family projects. Use this to
+  Standard app-policy matrix shape for wizardry-family projects. Use this to
   track which apps implement, fail, except, or have not yet been audited
   against each policy.
 

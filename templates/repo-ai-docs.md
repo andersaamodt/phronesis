@@ -3,7 +3,7 @@
 ## Upstream Standards
 - Read this repository's root README first.
 - Read `phronesis` standards for cross-project policy.
-- Read Wizardry, Wizardry Apps, and Theurgy docs only where this project depends on those layers.
+- Read wizardry, wizardry-apps, and Theurgy docs only where this project depends on those layers.
 
 ## Local Exception Ledger
 
@@ -28,7 +28,7 @@
 - Opaque formats and justification:
 
 ### Theme System
-- Classification: shared Wizardry themes | app-local themes | fixed palette | none
+- Classification: shared wizardry themes | app-local themes | fixed palette | none
 - Catalog source:
 - Ordering:
 - Keyboard contract:

@@ -1,6 +1,6 @@
 # Audits
 
-Wizardry-family audits are category-first and rolling.
+Audits for the wizardry family are category-first and rolling.
 
 Rules:
 
