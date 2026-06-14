@@ -4,7 +4,7 @@
 It turns hard-won project lessons into reusable policy, decision records,
 exception ledgers, audit methods, templates, and canonical ideal documents.
 
-The immediate audience is wizardry, wizardry-apps, Theurgy, and apps generated
+The immediate audience is wizardry, wizardry-apps, theurgy, and apps generated
 from them. The broader audience is developers who want a project culture where
 defaults are explicit, variance is reasoned, and humane technical standards can
 be enforced without copying corporate compliance values.

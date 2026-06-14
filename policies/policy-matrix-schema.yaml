@@ -60,11 +60,13 @@ seed_policy_ids:
     - tests.shipped-backend-contract
     - tests.shipped-ui-contract
   themes:
+    - themes.app-local-documented
     - themes.shared-catalog-authority
     - themes.native-shared-catalog-parity
     - themes.picker-keyboard
     - themes.list-alphabetized
   bridge:
+    - bridge.native-host-boundary
     - bridge.no-shell-fragments
     - bridge.backend-resolution-owned
   runtime:
@@ -73,6 +75,7 @@ seed_policy_ids:
     - docs.local-exceptions
     - docs.exception-ledger-shape
   repo_hygiene:
+    - repo.canonical-gitignore
     - repo.no-disposable-cruft
 
 related_categories:

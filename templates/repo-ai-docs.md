@@ -3,7 +3,7 @@
 ## Upstream Standards
 - Read this repository's root README first.
 - Read `phronesis` standards for cross-project policy.
-- Read wizardry, wizardry-apps, and Theurgy docs only where this project depends on those layers.
+- Read wizardry, wizardry-apps, and theurgy docs only where this project depends on those layers.
 
 ## Local Exception Ledger
 
@@ -11,6 +11,8 @@
 - POSIX sh:
 - Python:
 - Rust:
+- C:
+- C++:
 - Native/generated:
 - Other:
 

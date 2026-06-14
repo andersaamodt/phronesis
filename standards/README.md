@@ -12,4 +12,10 @@ Good standards are:
 
 Current seed areas:
 
+- `language/`: sh-first policy, non-shell boundaries, and current-audit Python posture
+- `storage/`: durable roots, plain-text defaults, and preferred file formats
+- `tests/`: `.tests/` contract and shipped app test expectations
+- `themes/`: shared theme contract and app-local theme exception rules
+- `runtime-boundaries/`: backend-path ownership, native host boundaries, and no-shell-fragment rules
+- `repo-docs/`: repo-local exception ledger requirements
 - `repo-hygiene/`: source checkout discipline, ignored cruft, and output roots
