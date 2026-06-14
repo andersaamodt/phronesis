@@ -3,6 +3,10 @@
 This directory is reserved for validators, report normalizers, and other
 supporting tooling that can enforce or check phronesis standards.
 
+Current tools:
+
+- `validate-audits.sh`: validates audit category schema and registry consistency.
+
 Likely future uses:
 
 - policy-matrix validation

@@ -12,6 +12,7 @@ category_record:
     - default_severity
     - fix_strategy
   optional:
+    - policy_axes
     - why_it_matters
     - enforcement_layer
     - allowed_exception_types
