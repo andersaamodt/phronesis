@@ -7,6 +7,7 @@ Rules:
 - Frontends do not infer backend executable paths from document locations or served asset paths.
 - Backend path resolution belongs to the host or backend contract.
 - Frontends do not send shell fragments or `sh -c` bridge payloads.
+- Timeout-sensitive runtime probes call the authoritative helper directly rather than nesting an additional shell status wrapper around it.
 - Generated native hosts may know packaged backend and resource paths inside the host-owned native boundary.
 - Development fallbacks and environment overrides are allowed only when documented and tested.
 - Shipped runtime paths do not compile Cargo-managed helpers on demand.
